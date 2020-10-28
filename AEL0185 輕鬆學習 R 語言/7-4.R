@@ -1,6 +1,7 @@
 # 程式碼 7-4
 title <- "Great NBA Teams"
-teams <- c("Chicago Bulls", "Golden State Warriors") > wins <- c(72, 73)
+teams <- c("Chicago Bulls", "Golden State Warriors") 
+wins <- c(72, 73)
 losses <- c(10, 9)
 winning_percentage <- wins / (wins + losses)
 season <- c("1995-96", "2015-16")
