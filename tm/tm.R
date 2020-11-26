@@ -16,17 +16,21 @@ length(z)
 install.packages('tm')
 install.packages('stringr')
 install.packages('wordcloud')
+
 library(tm)
 library(stringr)
 library(wordcloud)
 stopwords()
 
 poswords <- scan('postive-words.txt',what='character')
-poswords1 <- readLines('postive-words.txt')
+poswords1 <- readLines('positive-words.txt')
 identical(poswords,poswords1)
+textbag <- unlist(str_split(text,'\\s+'))
 negwords <- readLines('negative-words.txt')
-sum(!is.na(match(z1,poswords)))
-sum(!is.na(match(z1,negwords)))
-wordcloud(z1)
-wordcloud(z1,random.order = T,scale = c(3,0.5), colors = rainbow(8))
+textbag[!is.na(match(textbag,poswords))]
+sum(!is.na(match(textbag,poswords)))
+sum(!is.na(match(textbag,negwords)))
+
+wordcloud(textbag)
+wordcloud(textbag,random.order = T,scale = c(3,0.5), colors = rainbow(8))
     
